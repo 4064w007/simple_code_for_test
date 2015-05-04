@@ -37,7 +37,6 @@ void main(int argc, char *argv[])
 
 
         time(&timep);
-        printf("time():%d\n", timep);
 
         p = localtime(&timep);
         getrusage(RUSAGE_SELF, &dusage);
@@ -45,7 +44,6 @@ void main(int argc, char *argv[])
         {
                 p->tm_isdst = 1;
                 timep = mktime(p);
-                printf("*** %d ***\n", p->tm_isdst);
         }
         getrusage(RUSAGE_SELF, &zusage);
         printf("tm_isdst=1:user_cpu_time=%d sys_cpu_time=%d \n", get_diff_time(&dusage.ru_utime, &zusage.ru_utime),
