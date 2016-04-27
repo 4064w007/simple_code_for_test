@@ -55,6 +55,8 @@ void main(int argc, char *argv[])
                 p->tm_isdst = 0;
                 timep = mktime(p);
         }
+        
+        
         getrusage(RUSAGE_SELF, &zusage);
         printf("tm_isdst=0:user_cpu_time=%d sys_cpu_time=%d \n", get_diff_time(&dusage.ru_utime, &zusage.ru_utime),
                         get_diff_time(&dusage.ru_stime,&zusage.ru_stime));
